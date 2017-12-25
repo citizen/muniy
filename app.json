@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "diamond",
+    "name": "muniy",
     "description": "No description",
     "slug": "diamond",
     "privacy": "public",
@@ -15,7 +15,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.muniy.muniy"
+    },
+    "android": {
+      "package": "com.muniy.muniy"
     }
   }
 }

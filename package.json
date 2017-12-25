@@ -11,6 +11,7 @@
     "@expo/samples": "2.1.1",
     "expo": "^23.0.0",
     "ios": "0.0.1",
+    "native-base": "^2.3.5",
     "pacote": "^7.0.1",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",

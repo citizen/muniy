@@ -1,4 +1,5 @@
 import React from 'react';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
 import {
   Image,
   Platform,
@@ -12,32 +13,35 @@ import { ExpoLinksView } from '@expo/samples';
 
 export default class BillsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Menu',
+    title: 'Card',
   };
 
   render() {
     return (
       <View style={styles.container}>
+
       <ScrollView style={styles.container}>
 
       <View style={styles.getStartedContainer}>
            
 
-            <Text style={styles.getStartedText}>About Accounts</Text>
+            <Text style={styles.getStartedText}>Current Balance</Text>
+            <Text style={styles.getStartedText}>$1000</Text>
 
            
+           <Entypo name="credit-card" size={250} color="green" />
+
+           <View style={{ flexDirection: 'row' }}>
+     <Entypo name="circle" size={50} color="black" />
+     <Entypo name="circle-with-cross" size={50} color="black" />
+     <Entypo name="circle-with-minus" size={50} color="black" />
+     <Entypo name="circle-with-plus" size={50} color="black" />
+     <Entypo name="circular-graph" size={50} color="black" />
+      </View>
+      
           </View>
 
-        <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/bills.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
+       
        
       </ScrollView>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
 import {
   Image,
   Platform,
@@ -12,21 +13,19 @@ import { ExpoLinksView } from '@expo/samples';
 
 export default class BillsScreen extends React.Component {
   static navigationOptions = {
-    title: 'About Accounts',
+    title: 'Menu',
   };
 
   render() {
     return (
       <View style={styles.container}>
 
-      <View style={{ flexDirection: 'row' }}>
-      <Text>Register</Text>
-      <Text>Register</Text>
-      </View>
-   
-        <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-       
+      <ScrollView style={styles.container}>
 
+      <View style={styles.getStartedContainer}>
+      <Text style={styles.getStartedText}>Pick your service</Text>
+
+      <View style={styles.welcomeContainer}>
             <Image
               source={
                 __DEV__
@@ -35,12 +34,51 @@ export default class BillsScreen extends React.Component {
               }
               style={styles.welcomeImage}
             />
+          </View>
 
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.contentContainer}>
+              <Entypo name="mobile" size={100} color="green" />
         </View>
+        <View style={styles.contentContainer}>
+              <Entypo name="mobile" size={100} color="green" />
+        </View>
+        <View style={styles.contentContainer}>
+              <Entypo name="mobile" size={100} color="green" />
+        </View>      
+      </View>
+
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.contentContainer}>
+              <Entypo name="credit-card" size={100} color="green" />
+        </View>
+        <View style={styles.contentContainer}>
+              <Entypo name="credit-card" size={100} color="green" />
+        </View>
+        <View style={styles.contentContainer}>
+              <Entypo name="credit-card" size={100} color="green" />
+        </View>      
+      </View>
+
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.contentContainer}>
+              <Entypo name="credit-card" size={100} color="green" />
+        </View>
+        <View style={styles.contentContainer}>
+              <Entypo name="credit-card" size={100} color="green" />
+        </View>
+        <View style={styles.contentContainer}>
+              <Entypo name="credit-card" size={100} color="green" />
+        </View>      
+      </View>
+           
+          </View>
+
+      </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
            <Text>Not a member yet?</Text>
-            <Text>Registers</Text>
+            <Text>Register</Text>
         </View>
          </View>
     );
@@ -61,7 +99,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    padding: 10,
   },
   welcomeContainer: {
     alignItems: 'center',

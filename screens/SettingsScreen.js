@@ -1,14 +1,33 @@
-import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
-
-export default class SettingsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Help',
-  };
-
+import React, { Component } from 'react';
+import { Container, Header, Content, List, ListItem, Text } from 'native-base';
+export default class ListHeaderExample extends Component {
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <Container>
+        <Header />
+        <Content>
+          <List>
+            <ListItem itemHeader first>
+              <Text>COMEDY</Text>
+            </ListItem>
+            <ListItem >
+              <Text>Hangover</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Horrible Bosses</Text>
+            </ListItem>
+            <ListItem last>
+              <Text>Conjuring</Text>
+            </ListItem>
+            <ListItem itemHeader>
+              <Text>ACTION</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Terminator Genesis</Text>
+            </ListItem>
+          </List>
+        </Content>
+      </Container>
+    );
   }
 }

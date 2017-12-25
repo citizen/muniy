@@ -1,37 +1,23 @@
-import React from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
-
-import {
-  StackNavigator,
-} from 'react-navigation';
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Accounts'
-  };
-
+import React, { Component } from 'react';
+import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
+export default class FloatingLabelExample extends Component {
   render() {
     return (
-      <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-        <Text onPress={this._handlePress}>Accounts</Text>
-        <Text onPress={this._handlePress}>Bills</Text>
-        <Text onPress={this._handlePress}>Invest</Text>
-        <Text onPress={this._handlePress}>Loan</Text>
-      </View>
-
-    )
-  }
-
-  _handlePress = () => {
-    this.props.navigation.navigate('Loans');
+      <Container>
+        <Header />
+        <Content>
+          <Form>
+            <Item floatingLabel>
+              <Label>Username</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel last>
+              <Label>Password</Label>
+              <Input />
+            </Item>
+          </Form>
+        </Content>
+      </Container>
+    );
   }
 }
-
-export default StackNavigator({
-  Home: {
-    screen: HomeScreen,
-  },
-});

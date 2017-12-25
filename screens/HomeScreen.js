@@ -1,4 +1,7 @@
 import React from 'react';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
+import Touchable from 'react-native-platform-touchable';
+
 import {
   Image,
   Platform,
@@ -14,57 +17,87 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
+
 export default class HomeScreen extends React.Component {
 static navigationOptions = {
-    title: 'Home',
+    title: 'Muniy',
   };
 
   render() {
     return (
       <View style={styles.container}>
+      <Text style={styles.optionsTitleText}>
+          Transactions
+        </Text>
+
+        <Touchable
+          style={styles.option}
+          background={Touchable.Ripple('#ccc', false)}
+          onPress={this._handlePressCard}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.optionIconContainer}>
+            <Entypo name="credit-card" size={25} color="green" />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionText}>
+                Card
+              </Text>
+            </View>
+          </View>
+        </Touchable>
+
+        <Touchable
+          style={styles.option}
+          background={Touchable.Ripple('#ccc', false)}
+          onPress={this._handlePressMenu}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.optionIconContainer}>
+              <FontAwesome name="money" size={25} color="green" />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionText}>
+                Bills
+              </Text>
+            </View>
+          </View>
+        </Touchable>
+
+        <Touchable
+          style={styles.option}
+          background={Touchable.Ripple('#ccc', false)}
+          onPress={this._handlePress}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.optionIconContainer}>
+              <Entypo name="rocket" size={25} color="green" />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionText}>
+                Invest
+              </Text>
+            </View>
+          </View>
+        </Touchable>
+
+        <Touchable
+          style={styles.option}
+          background={Touchable.Ripple('#ccc', false)}
+          onPress={this._handlePressAccounts}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.optionIconContainer}>
+              <Entypo name="area-graph" size={25} color="green" />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionText}>
+                Loans
+              </Text>
+            </View>
+          </View>
+        </Touchable>
        
           <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/accounts.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-            <Text>Card</Text>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/safe.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-            <Text>Bills</Text>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/invest.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-            <Text>Invest</Text>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/loans.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />    
-            <Text>Loan</Text>  
+          <Entypo name="paper-plane" size={80} color="green" />
+            <Text>Transactions</Text>
           </View>
-
-
-       
-
       
       </View>
     );
@@ -96,6 +129,21 @@ static navigationOptions = {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
   };
 
+  _handlePressCard = () => {
+    this.props.navigation.navigate('Card');
+  };
+
+  _handlePressMenu = () => {
+    this.props.navigation.navigate('Menu');
+  };
+
+  _handlePress = () => {
+    this.props.navigation.navigate('Bills');
+  };
+  _handlePressAccounts = () => {
+    this.props.navigation.navigate('Accounts');
+  };
+
   _handleHelpPress = () => {
     WebBrowser.openBrowserAsync(
       'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
@@ -106,7 +154,33 @@ static navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    
+  },
+
+  container: {
+    flex: 1,
+    paddingTop: 15,
+    backgroundColor: '#FFF',
+  },
+  optionsTitleText: {
+    fontSize: 16,
+    marginLeft: 15,
+    marginTop: 9,
+    marginBottom: 12,
+  },
+  optionIconContainer: {
+    marginRight: 9,
+  },
+  option: {
+    backgroundColor: '#fdfdfd',
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#EDEDED',
+  },
+  optionText: {
+    fontSize: 20,
+    marginTop: 1,
   },
   developmentModeText: {
     marginBottom: 20,

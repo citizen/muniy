@@ -1,18 +1,19 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Entypo } from '@expo/vector-icons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
 import AccountsScreen from '../screens/AccountsScreen';
 import AboutAccounts from '../screens/AboutAccounts';
-import InvestScreen from '../screens/InvestScreen';
+import MenuScreen from '../screens/MenuScreen';
 import BillsScreen from '../screens/BillsScreen';
 import LoansScreen from '../screens/LoansScreen';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import HelpScreen from '../screens/HelpScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import CardScreen from '../screens/CardScreen';
 
 export default TabNavigator(
   {
@@ -25,14 +26,17 @@ export default TabNavigator(
     Accounts: {
       screen: AccountsScreen,
     },
-    Invest: {
-      screen: InvestScreen,
+    Card: {
+      screen: CardScreen,
+    },
+    Menu: {
+      screen: MenuScreen,
     },
     Loans: {
       screen: LoansScreen,
     },
-    Links: {
-      screen: LinksScreen,
+    Help: {
+      screen: HelpScreen,
     },
     Settings: {
       screen: SettingsScreen,
@@ -47,15 +51,24 @@ export default TabNavigator(
           case 'Home':
             iconName =
               Platform.OS === 'ios'
-                ? `ios-information-circle${focused ? '' : '-outline'}`
-                : 'md-information-circle';
+                ? `ios-home${focused ? '' : '-outline'}`
+                : 'home';
             break;
-          case 'Links':
+          case 'Help':
             iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
+            break;
+          case 'Bills':
+            iconName = Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'ios-person';
+            break;
+          case 'Accounts':
+            iconName = Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'ios-person';
+            break;
+          case 'Menu':
+            iconName = Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'ios-person';
             break;
           case 'Settings':
             iconName =
-              Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
+              Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'ios-person';
         }
         return (
           <Ionicons

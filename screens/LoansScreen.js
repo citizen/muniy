@@ -1,139 +1,60 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
+import Swiper from '../Swiper';
 import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+  StyleSheet,   // CSS-like styles
+  Text,         // Renders text
+  View          // Container component
 } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 
-export default class BillsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'About Investments',
-  };
-
+export default class Screens extends Component {
   render() {
     return (
-      <ScrollView style={styles.container}>
-
-      <View style={styles.getStartedContainer}>
-           
-
-            <Text style={styles.getStartedText}>About Accounts</Text>
-
-           
-          </View>
-
-        <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/invest.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-       
-<View style={styles.getStartedContainer}>
-           <Text>Not a member yet?</Text>
-        <Text>Register</Text>
-          </View>
-
-      </ScrollView>
+      <Swiper>
+      {/* First screen */}
+      <View style={[styles.slide, { backgroundColor: '#C04DEE' }]}>
+        <Entypo name="credit-card" size={100} color="white" />
+        <Text style={styles.header}>Banking</Text>
+        <Text style={styles.text}>Good nutrition is an important part of leading a healthy lifestyle</Text>
+      </View>
+      {/* Second screen */}
+      <View style={[styles.slide, { backgroundColor: '#4AAFEE' }]}>
+        <Entypo name="credit-card" size={100} color="white" />
+        <Text style={styles.header}>Remittance</Text>
+        <Text style={styles.text}>Prayer is one of the most important things a Christian can do</Text>
+      </View>
+      {/* Third screen */}
+      <View style={[styles.slide, { backgroundColor: '#FC515B' }]}>
+        <Entypo name="credit-card" size={100} color="white" />
+        <Text style={styles.header}>Loans</Text>
+        <Text style={styles.text}>Where there is love there is life</Text>
+      </View>
+    </Swiper>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
+  // Slide styles
+  slide: {
+    flex: 1,                    // Take up all screen
+    justifyContent: 'center',   // Center vertically
+    alignItems: 'center',       // Center horizontally
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
+  // Header styles
+  header: {
+    color: '#FFFFFF',
+    fontFamily: 'Avenir',
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginVertical: 15,
+  },
+  // Text below header
+  text: {
+    color: '#FFFFFF',
+    fontFamily: 'Avenir',
+    fontSize: 18,
+    marginHorizontal: 40,
     textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
 });
