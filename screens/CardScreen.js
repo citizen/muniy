@@ -26,7 +26,7 @@ export default class BillsScreen extends React.Component {
            
 
             <Text style={styles.getStartedText}>Current Balance</Text>
-            <Text style={styles.getStartedText}>$1000</Text>
+            <Text style={styles.getStartedText}>$1000000</Text>
 
            
            <Entypo name="credit-card" size={250} color="green" />
